@@ -89,6 +89,15 @@ class Program
             }
             Console.WriteLine();
         }
+        
+        //ESTRAZIONE NUMERI 
+        for (int i = 0; i < 91; i++)
+        {
+            Console.WriteLine("Numero estratto: ");
+            Console.WriteLine(estrazione = r.Next(1, 90));
+            Console.WriteLine("Premere un tasto per continuare:"); 
+            Console.ReadLine();
+        }
 
 
     }
