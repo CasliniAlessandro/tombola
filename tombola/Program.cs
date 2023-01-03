@@ -18,8 +18,7 @@ class Program
 
         int variabile;
         variabile = 1;
-        int variabile2;
-        variabile2 = 1;
+        int estrazione;
         Random r = new Random();
         int[,] mat = new int[9,10];
         int[,] mat2 = new int[3,5];
