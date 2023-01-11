@@ -31,32 +31,25 @@ class Program
         {
             for (int j = 0; j < 10; j++)
             {
-                
-                mat[i, j] = variabile++ ;
-
-                if (mat[i, j] == numestrazione)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                }
-                
+                mat[i, j] = variabile++;
             }
-            Console.WriteLine();
-
-
-            for (int k = 0; k < 10; k++)
-            {
-                Console.Write(mat[i,k]+" ") ;
-
-                
-            }
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.White;
         }
+
+        //STAMPA TABELLONE 
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                Console.SetCursorPosition(j * 3, i + 4);
+                Console.Write(mat[i, j]);
+
+
+            }
+            Console.WriteLine();
+        }
+
+
+
 
 
         // SCHEDA GIOCATORE 1 
@@ -106,24 +99,24 @@ class Program
                 mat2[0, 8] = r.Next(80, 90);
                 mat2[1, 8] = 0;
                 mat2[2, 8] = r.Next(80, 90);
-
-
-                if (mat2[i, j] == numestrazione)
-                {
-                    Console.WriteLine("Il vincitore è il giocatore 2");
-                }
-
             }
-
-            Console.WriteLine();
-            for (int k = 0; k < 9; k++)
-            {
-                Console.Write(mat2[i, k] + " ");
-            }
-            Console.WriteLine();
-
 
         }
+
+        //STAMPA SCHEDA1
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                Console.SetCursorPosition(j * 3, i + 16);
+                Console.Write(mat2[i, j]);
+            }
+            Console.WriteLine();
+        }
+
+
+
+
         //SCHEDA GIOCATORE 2 
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine();
@@ -170,42 +163,47 @@ class Program
                 mat2[0, 8] = r.Next(80, 90);
                 mat2[1, 8] = 0;
                 mat2[2, 8] = r.Next(80, 90);
-
-
-
-                if (mat2[i, j] == numestrazione)
-                {
-                    Console.WriteLine("Il vincitore è il giocatore 2") ;
-                }
-
             }
-            Console.WriteLine();
-            for (int k = 0; k < 9; k++)
+        }
+
+        //STAMPA SCHEDA2
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 9; j++)
             {
-                Console.Write(mat2[i, k] + " ");
+                Console.SetCursorPosition(j * 3, i + 22);
+                Console.Write(mat2[i, j]);
             }
             Console.WriteLine();
         }
-        Console.WriteLine();
 
         //ESTRAZIONE NUMERI 
         Console.ForegroundColor = ConsoleColor.White;
 
         for (int i = 1; i < 91; i++)
         {
-            Console.WriteLine("Numero estratto: ");
-            Console.WriteLine(numestrazione = r.Next(1, 90));
-            Console.WriteLine("Premere un tasto per continuare:"); 
-            Console.ReadLine();
+           
+           
+                Console.WriteLine("Numero estratto: ");
+                Console.WriteLine(numestrazione = r.Next(1, 90));
+                Console.WriteLine("Premere un tasto per continuare:");
+                Console.ReadLine();
 
+
+
+       
         }
 
     }
 
 
-
-
-
-
 }
+    
+
+
+
+
+
+
+
 
