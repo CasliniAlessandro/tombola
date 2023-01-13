@@ -19,31 +19,31 @@ namespace tombola
             Console.WriteLine("TABELLONE");
 
             Console.ReadKey();
-            
+
             Random r = new Random();
             int[,] tab = new int[9, 10];
             int[,] cartella1 = new int[3, 9];
             int[,] cartella2 = new int[3, 9];
-            
+
 
 
             //CARICAMENTO DELLA MATRICE TABELLONE
             int s = 0;
-            for (int j = 0; j < 9; j++) 
+            for (int j = 0; j < 9; j++)
             {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        s++;
-                        tab[j, i] = s;
-                        Console.SetCursorPosition(1 + i * 4, 3 + j * 2);
-                        Console.Write(s);
-                    }
-                      
+                for (int i = 0; i < 10; i++)
+                {
+                    s++;
+                    tab[j, i] = s;
+                    Console.SetCursorPosition(1 + i * 4, 3 + j * 2);
+                    Console.Write(s);
+                }
+
             }
 
             Console.WriteLine();
 
-            
+
 
 
             // SCHEDA GIOCATORE 1 
@@ -177,56 +177,56 @@ namespace tombola
 
             //ESTRAZIONE NUMERI 
             Console.ForegroundColor = ConsoleColor.White;
-             int pnumestratti = 0;
+            
             do
             {
-                pnumestratti += 3;
+             
                 int numestrazione = r.Next(1, 91);
                 //stampa numeri estratti nel tabellone colorati di rosso 
-                for (int i = 0; i < 10; i++) 
+                for (int i = 0; i < 10; i++)
                 {
-                     for (int j = 0; j < 9; j++)
-                     {
-                          if (tab[j, i] == numestrazione)
-                          {
-                               Console.BackgroundColor = ConsoleColor.Red;
-                               Console.SetCursorPosition(i * 4, 3 + j * 2);
-                               Console.Write($" {numestrazione} ");
-                          }
-                     }
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (tab[j, i] == numestrazione)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(i * 4, 3 + j * 2);
+                            Console.Write($" {numestrazione} ");
+                        }
+                    }
                 }
-                
-                
+
+
 
                 //stampa numeri estratti nella cartella1 colorati di rosso
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 3; i++)
                 {
-                     for (int j = 0; j < 9; j++)
-                     {
-                          if (cartella1[i, j] == numestrazione)
-                          {
-                               Console.BackgroundColor = ConsoleColor.Red;
-                               Console.SetCursorPosition(j * 4, i + 25);
-                               Console.Write($" {numestrazione} ");
-                          }
-                     }
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (cartella1[i, j] == numestrazione)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(j * 4, i + 25);
+                            Console.Write($" {numestrazione} ");
+                        }
+                    }
 
                 }
-                
+
 
                 //stampa numeri estratti nella cartella2 colorati di rosso
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 3; i++)
                 {
-                     for (int j = 0; j < 9; j++)
-                     {
-                         if (cartella2[i, j] == numestrazione)
-                         {
-                              Console.BackgroundColor = ConsoleColor.Red;
-                              Console.SetCursorPosition(j * 4, i + 31);
-                              Console.Write($" {numestrazione} ");
-                              cartella2[i, j] = 0;
-                         }
-                     }
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (cartella2[i, j] == numestrazione)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(j * 4, i + 31);
+                            Console.Write($" {numestrazione} ");
+                            cartella2[i, j] = 0;
+                        }
+                    }
 
 
                 }
@@ -241,48 +241,47 @@ namespace tombola
                 int somma1 = 0;
                 int somma2 = 0;
 
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 3; i++)
                 {
-                     for (int j = 0; j < 9; j++)
-                     {
-                          somma1 = somma1 + cartella1[i, j];
-                     }
-                            
+                    for (int j = 0; j < 9; j++)
+                    {
+                        somma1 = somma1 + cartella1[i, j];
+                    }
+
                 }
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 3; i++)
                 {
-                     for (int j = 0; j < 9; j++)
-                     {
-                          somma2 = somma2 + cartella2[i, j];
-                     }
-                      
+                    for (int j = 0; j < 9; j++)
+                    {
+                        somma2 = somma2 + cartella2[i, j];
+                    }
+
                 }
 
                 if (somma1 == 0)
                 {
-
+                    Console.Clear();
                     Console.WriteLine("TOMBOLAAA!!");
                     Console.WriteLine("Il vincotore è il giocatore della cartella 1");
                     Console.ReadKey();
-                    Console.Clear();
+                    
                     break;
                 }
                 if (somma2 == 0)
                 {
-                    
+                    Console.Clear();
                     Console.WriteLine("TOMBOLAAA!!");
                     Console.WriteLine("Il vincotore è il giocatore della cartella 2");
                     Console.ReadKey();//premere tasto per avanzare 
-                    Console.Clear();//pulisce
                     break;
                 }
             }
             while (true);
 
-            
 
 
-            
+
+
 
 
 
@@ -292,3 +291,4 @@ namespace tombola
         }
     }
 }
+
